@@ -145,3 +145,164 @@ img{max-width:100%;display:block}
   .detail-actions{justify-content:center}
   .detail-actions .btn{width:100%}
 }
+
+/* Vista comparativa resumida de ortomosaicos */
+.comparison-preview{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  background:#fff;
+  padding:18px;
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+.preview-card{
+  margin:0;
+  min-width:0;
+}
+.preview-card h3{
+  margin:0 0 8px;
+  color:var(--z-navy);
+  font-size:15px;
+  line-height:1.25;
+}
+.preview-frame{
+  width:100%;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:14px;
+  background:#e8eeeb;
+}
+.preview-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+/* Ajustes específicos para tablet */
+@media (min-width:761px) and (max-width:1100px){
+  .container{width:min(100% - 44px,1180px)}
+  .hero-home{min-height:560px}
+  .hero-copy{max-width:680px}
+  .hero-copy h1{font-size:clamp(48px,7vw,68px)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .step-card,.step-card:nth-child(4n+2),.step-card:nth-child(4n+3){grid-template-columns:42% 58%}
+  .step-media{min-height:250px}
+  .step-body{padding:28px}
+  .feature-band{grid-template-columns:1fr;gap:28px}
+  .feature-band h2{font-size:40px;max-width:760px}
+  .comparison-preview{max-width:820px;width:100%;margin-inline:auto}
+  .detail-main .container{width:min(100% - 44px,1180px)}
+  .content-card{padding:30px}
+  .timeline-step{grid-template-columns:minmax(250px,38%) 1fr}
+  .timeline-media{min-height:220px}
+}
+
+@media(max-width:760px){
+  .comparison-preview{grid-template-columns:1fr;padding:14px;border-radius:20px}
+  .preview-card h3{font-size:14px}
+}
+
+/* Comparativa de la portada: títulos y pies separados de las imágenes */
+.feature-band .comparison-preview{
+  align-self:stretch;
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
+}
+.preview-card{
+  background:#f8faf9;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px;
+}
+.preview-card h3{
+  color:var(--z-green);
+  min-height:38px;
+  display:flex;
+  align-items:flex-end;
+}
+.preview-card figcaption{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+}
+
+/* Revisión específica para tablet: navegación visible y tarjetas en una columna */
+@media (min-width:761px) and (max-width:1000px){
+  .navbar{
+    height:auto;
+    min-height:76px;
+    flex-wrap:wrap;
+    padding:11px 0 9px;
+    gap:8px;
+  }
+  .brand{width:100%}
+  .nav-links{
+    display:flex;
+    width:100%;
+    max-width:100%;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    padding-bottom:4px;
+  }
+  .nav-links a:not(.nav-cta){display:block}
+  .steps-grid{grid-template-columns:1fr}
+  .step-card,
+  .step-card:nth-child(4n+2),
+  .step-card:nth-child(4n+3){grid-template-columns:40% 60%}
+  .feature-band .comparison-preview{max-width:none}
+}
+
+@media (min-width:761px) and (max-width:1100px){
+  .comparison-preview{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .preview-frame{aspect-ratio:16/10}
+}
+
+
+/* Ajustes finales de consistencia visual (v10) */
+:root{--z-navy:#1f3f6d;}
+.steps-grid{gap:30px;align-items:stretch}
+.step-card{min-height:350px;align-items:stretch}
+.step-media{display:flex;align-items:center;justify-content:center;min-height:290px;background:#dfe7e2}
+.step-media img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.step-media img.contain-thumb{object-fit:contain;background:#f5f3ed;padding:12px}
+.step-body{padding:32px}
+.step-body h3{font-size:clamp(28px,2.2vw,34px)}
+.step-body p{font-size:16px;line-height:1.72}
+.step-tags{margin:2px 0 20px}
+.timeline-media{background:#eef3f0}
+.timeline-copy p,.section-head p,.overview-card p{line-height:1.78}
+.comparison-preview,.comparison-grid{align-items:stretch}
+.comparison-card,.preview-card{display:flex;flex-direction:column}
+.comparison-frame,.preview-frame{flex:0 0 auto}
+.preview-card h3{min-height:42px}
+
+@media (min-width:761px) and (max-width:1100px){
+  .steps-grid{gap:24px}
+  .step-card,
+  .step-card:nth-child(4n+2),
+  .step-card:nth-child(4n+3){grid-template-columns:43% 57%;min-height:325px}
+  .step-media{min-height:250px}
+  .step-body{padding:26px}
+  .step-body h3{font-size:clamp(24px,3vw,30px)}
+  .step-body p{font-size:15.5px;line-height:1.68}
+  .section-head h2{font-size:clamp(30px,4.2vw,44px)}
+  .feature-band h2{font-size:clamp(34px,4vw,42px)}
+  .content-card h2{font-size:28px}
+  .content-card p,.content-card li{font-size:16px;line-height:1.75}
+}
+
+@media (max-width:760px){
+  .steps-grid{gap:20px}
+  .step-card,
+  .step-card:nth-child(n){grid-template-columns:1fr;min-height:auto}
+  .step-media{min-height:auto;aspect-ratio:16/10}
+  .step-body{padding:22px}
+  .step-body h3{font-size:27px}
+  .step-body p{font-size:15px;line-height:1.7}
+  .section-head p,.overview-card p,.timeline-copy p{font-size:16px}
+  .preview-card h3,.comparison-card h3{min-height:auto}
+}
